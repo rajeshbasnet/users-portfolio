@@ -10,4 +10,19 @@
 
 .education__container--heading .underline {
   width: 400px;
+  margin-bottom: 8rem;
+}
+
+.education__info > p {
+  margin: 1rem 0;
+  font-family: var(--primary-font);
+}
+
+.education__heading--icon {
+  position: absolute;
+  top: -10%;
+  background-color: #a160d4;
+  padding: 1.4rem 1.6rem;
+  border-radius: 50%;
+  color: white;
 }
