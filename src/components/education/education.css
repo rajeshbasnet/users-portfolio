@@ -1,0 +1,13 @@
+.education-container {
+  min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.education__container--heading > h2 {
+  font-size: 2.8rem;
+}
+
+.education__container--heading .underline {
+  width: 400px;
+}
