@@ -1,0 +1,78 @@
+.experience-container {
+  width: 90%;
+  margin: 3rem auto;
+  height: 100vh;
+}
+
+.experience-container .experience-container__heading > h2 {
+  font-size: 2.8rem;
+}
+
+.experience-container .experience-container__heading .underline {
+  width: 380px;
+}
+
+.experience-container__carousel {
+  width: 70%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.experience__carousel--item {
+  position: absolute;
+  top: 20%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+}
+
+.experience-container__carousel
+  .experience__carousel--item
+  .experience__carousel--heading__icon
+  > .work-icon {
+  padding: 1rem 1.2rem;
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  font-size: 3rem;
+  color: white;
+}
+
+.experience-container__carousel .experience__carousel--item .experience__title {
+  font-weight: 800;
+}
+
+.experience-container__carousel
+  .experience__carousel--item
+  .experience__company
+  > p {
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+.experience-container__carousel
+  .experience__carousel--item
+  .experience__details
+  > p {
+  line-height: 2;
+}
+
+.active {
+  transform: translateX(0);
+  visibility: visible;
+  transition: all 0.3s ease-in;
+}
+
+.previous {
+  transform: translateX(-200%);
+  visibility: hidden;
+  transition: all 0.3s ease-in;
+}
+
+.next {
+  transform: translateX(200%);
+  visibility: hidden;
+  transition: all 0.3s ease-in;
+}

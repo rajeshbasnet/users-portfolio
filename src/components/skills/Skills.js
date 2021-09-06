@@ -34,7 +34,7 @@ function Skills() {
           </Typography>
           <LinearProgress
             variant="buffer"
-            value="80"
+            value={80}
             className={classes.progressBar}
           />
         </Grid>
@@ -45,7 +45,7 @@ function Skills() {
           </Typography>
           <LinearProgress
             variant="buffer"
-            value="80"
+            value={80}
             className={classes.progressBar}
           />
         </Grid>
@@ -56,7 +56,7 @@ function Skills() {
           </Typography>
           <LinearProgress
             variant="buffer"
-            value="80"
+            value={80}
             className={classes.progressBar}
           />
         </Grid>
@@ -67,7 +67,7 @@ function Skills() {
           </Typography>
           <LinearProgress
             variant="buffer"
-            value="80"
+            value={80}
             className={classes.progressBar}
           />
         </Grid>
@@ -78,7 +78,7 @@ function Skills() {
           </Typography>
           <LinearProgress
             variant="buffer"
-            value="80"
+            value={80}
             className={classes.progressBar}
           />
         </Grid>
@@ -89,7 +89,7 @@ function Skills() {
           </Typography>
           <LinearProgress
             variant="buffer"
-            value="80"
+            value={80}
             className={classes.progressBar}
           />
         </Grid>
