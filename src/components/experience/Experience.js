@@ -1,20 +1,44 @@
 import React, { useEffect, useState } from "react";
 import "./experience.css";
 import { MdWork } from "react-icons/md";
+import { data } from "../../utils/data";
+import { FcPrevious, FcNext } from "react-icons/fc";
+import { IconButton, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles({
+  btnLeft: {
+    position: "absolute",
+    left: "0%",
+    top: "25%",
+  },
+  btnRight: {
+    position: "absolute",
+    right: "0%",
+    top: "25%",
+  },
+});
 
 function Experience() {
   const [index, setIndex] = useState(0);
-  const array = [1, 2, 3, 4];
+  const { workExperience } = data;
+
+  const classes = useStyles();
+
+  const btnHandler = (status) => {
+    if (status === "prev") {
+      setIndex(index - 1);
+    }
+
+    if (status === "next") {
+      if (index < workExperience.length - 1) {
+        setIndex(index + 1);
+      }
+    }
+  };
 
   useEffect(() => {
     let timeout = setInterval(() => {
-      if (index < 0) {
-        setIndex(array.length - 1);
-      } else if (index >= array.length - 1) {
-        setIndex(0);
-      } else {
-        setIndex(index + 1);
-      }
+      setIndex(index + 1);
     }, 5000);
 
     return () => {
@@ -22,24 +46,48 @@ function Experience() {
     };
   });
 
+  useEffect(() => {
+    if (index < 0) {
+      setIndex(workExperience.length - 1);
+    } else if (index >= workExperience.length - 1) {
+      setIndex(0);
+    }
+  }, [index]);
+
   return (
-    <div className="experience-container">
+    <div className="experience-container" id="experience">
       <div className="experience-container__heading">
         <h2 className="font-fair">Work Experience</h2>
         <div className="underline"></div>
       </div>
 
       <div className="experience-container__carousel font-rale">
-        {array.map((item, idx) => {
+        {workExperience.map((experience, idx) => {
           let currentStatus = "active";
 
-          if ((index === array.length - 1 && idx === 0) || idx > index) {
+          if (
+            (index === workExperience.length - 1 && idx === 0) ||
+            idx > index
+          ) {
             currentStatus = "next";
           }
 
-          if ((index === 0 && idx === array.length - 1) || idx < index) {
+          if (
+            (index === 0 && idx === workExperience.length - 1) ||
+            idx < index
+          ) {
             currentStatus = "previous";
           }
+
+          const {
+            title,
+            institution,
+            startYear,
+            startMonth,
+            endYear,
+            endMonth,
+            details,
+          } = experience;
 
           return (
             <div
@@ -56,31 +104,46 @@ function Experience() {
               <br />
 
               <div className="experience__title">
-                <p>September 2018 - Present</p>
+                <p>
+                  {startMonth} {startYear} - {endMonth} {endYear}
+                </p>
               </div>
 
               <br />
 
               <div className="experience__company">
-                <p>Dallo Tech Pvt. Ltd. Sep</p>
-                <p>Sr. DevOps and Blockchain Developer</p>
+                <p>{institution}</p>
+                <p>{title}</p>
               </div>
 
               <br />
 
-              <div className="experience__details">
-                <p>
-                  DalloTechis an IT based company established in 2018 by a group
-                  of enthusiastic engineers who believe in the marvels of
-                  technological innovations to uplift the development of
-                  society.
-                </p>
-
-                <p>Website: https://dallotech.com/</p>
-              </div>
+              <div
+                className="experience__details"
+                dangerouslySetInnerHTML={{ __html: details }}
+              ></div>
             </div>
           );
         })}
+        <div className="carousel__change__btn">
+          <IconButton
+            className={classes.btnLeft}
+            onClick={() => {
+              btnHandler("prev");
+            }}
+          >
+            <FcPrevious />
+          </IconButton>
+
+          <IconButton
+            className={classes.btnRight}
+            onClick={() => {
+              btnHandler("next");
+            }}
+          >
+            <FcNext />
+          </IconButton>
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,15 @@
 
 .education__container--heading .underline {
   width: 400px;
+  height: 5px;
+  background-color: black;
   margin-bottom: 8rem;
+}
+
+@media screen and (max-width: 407px) {
+  .education__container--heading .underline {
+    width: 180px;
+  }
 }
 
 .education__info > p {

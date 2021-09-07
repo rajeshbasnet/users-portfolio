@@ -5,6 +5,7 @@ import "./skills.css";
 import illustration1 from "../../resources/illustrations/SVG/Asset 3.svg";
 import illustration2 from "../../resources/illustrations/SVG/Asset 4.svg";
 import illustration3 from "../../resources/illustrations/SVG/Asset 5.svg";
+import { data } from "../../utils/data";
 
 const useStyles = makeStyles({
   progressBarHeading: {
@@ -20,79 +21,45 @@ const useStyles = makeStyles({
 function Skills() {
   const classes = useStyles();
 
+  const { skills } = data;
+
   return (
-    <div className="skills-container font-rale">
-      <div className="container-heading">
+    <div className="skills-container font-rale" id="skills">
+      <div className="skills-container--heading">
         <h2 className="font-fair">Skills</h2>
         <div className="underline"></div>
       </div>
 
       <Grid container spacing={8}>
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <Typography variant="body1" className={classes.progressBarHeading}>
-            Blockchain
-          </Typography>
-          <LinearProgress
-            variant="buffer"
-            value={80}
-            className={classes.progressBar}
-          />
-        </Grid>
-
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <Typography variant="body1" className={classes.progressBarHeading}>
-            Java and Spring Boot
-          </Typography>
-          <LinearProgress
-            variant="buffer"
-            value={80}
-            className={classes.progressBar}
-          />
-        </Grid>
-
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <Typography variant="body1" className={classes.progressBarHeading}>
-            Android
-          </Typography>
-          <LinearProgress
-            variant="buffer"
-            value={80}
-            className={classes.progressBar}
-          />
-        </Grid>
-
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <Typography variant="body1" className={classes.progressBarHeading}>
-            Django
-          </Typography>
-          <LinearProgress
-            variant="buffer"
-            value={80}
-            className={classes.progressBar}
-          />
-        </Grid>
-
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <Typography variant="body1" className={classes.progressBarHeading}>
-            Tensorflow and Keras
-          </Typography>
-          <LinearProgress
-            variant="buffer"
-            value={80}
-            className={classes.progressBar}
-          />
-        </Grid>
-
-        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-          <Typography variant="body1" className={classes.progressBarHeading}>
-            Docker
-          </Typography>
-          <LinearProgress
-            variant="buffer"
-            value={80}
-            className={classes.progressBar}
-          />
-        </Grid>
+        {skills.map((skill, index) => {
+          return (
+            <Grid
+              item
+              xs={12}
+              sm={12}
+              md={6}
+              lg={6}
+              xl={6}
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay="200"
+              data-aos-duration="500"
+              data-aos-easing="ease-in-out"
+            >
+              <Typography
+                variant="body1"
+                className={classes.progressBarHeading}
+              >
+                {skill.name}
+              </Typography>
+              <LinearProgress
+                variant="buffer"
+                value={parseInt(skill.percentage)}
+                className={classes.progressBar}
+              />
+            </Grid>
+          );
+        })}
       </Grid>
 
       <img

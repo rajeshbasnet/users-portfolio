@@ -10,6 +10,8 @@
 
 .contact-container--heading .underline {
   width: 260px;
+  height: 5px;
+  background-color: black;
 }
 
 .contact-container .contact__illustration > img {

@@ -5,16 +5,18 @@
   position: relative;
 }
 
-.container-heading {
-  margin-bottom: 8rem;
+.skills-container--heading {
+  margin-bottom: 3.5rem;
 }
 
-.skills-container .container-heading > h2 {
+.skills-container .skills-container--heading > h2 {
   font-size: 2.8rem;
 }
 
-.container-heading .underline {
+.skills-container--heading .underline {
   width: 150px;
+  height: 5px;
+  background-color: black;
 }
 
 .illustration--triangle {

@@ -34,7 +34,7 @@
 }
 
 .hero-content .user-portfolio {
-  margin: 2.5rem 0 0;
+  margin: 3rem 0 0;
 }
 
 .hero-content .user-portfolio .view-btn {
@@ -51,18 +51,34 @@
   color: white;
 }
 
+@media screen and (max-width: 300px) {
+  .hero-content {
+    transform: translate(5%, 90%);
+  }
+
+  .hero-content .user-greeting > h1 {
+    font-size: 2.1rem;
+    font-weight: 800;
+  }
+
+  .hero-content .user-field h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}
+
 @media screen and (max-width: 421px) {
   .hero-content {
     transform: translate(5%, 90%);
   }
 
   .hero-content .user-greeting > h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 800;
   }
 
   .hero-content .user-field h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 400;
   }
 }

@@ -3,35 +3,40 @@ import "./about.css";
 import defaultImage from "../../resources/images/pexels-pixabay-220453.jpg";
 import defaultImage2 from "../../resources/illustrations/SVG/Asset 2.svg";
 import { BiCodeAlt } from "react-icons/bi";
+import { data } from "../../utils/data";
+import Parser from "html-react-parser";
 
 function About() {
+  const { aboutMe1, aboutMe2, basicSkills } = data;
+
   return (
-    <section className="about__section">
+    <section className="about__section" id="about">
       <div className="about__section__container">
-        <div className="about__section--heading">
+        <div
+          className="about__section--heading"
+          data-aos="fade-right"
+          data-aos-delay="200"
+          data-aos-duration="500"
+          data-aos-easing="ease-in-out"
+        >
           <h2 className="font-fair">About Me</h2>
           <div className="underline"></div>
         </div>
 
         <div className="user__description">
-          <div className="user__description--info font-rale">
-            <p>
-              I recently finished my bachelors in Computer Engineering from
-              Pulchowk Engineering Campus, located at Pulchowk Lalitpur. I had a
-              passion for computers from a very young age. And my only aim in
-              life is to improve Nepal through IT sector.
-            </p>
+          <div
+            className="user__description--info font-rale"
+            data-aos="fade-right"
+            data-aos-delay="400"
+            data-aos-duration="500"
+            data-aos-easing="ease-in-out"
+          >
+            {Parser(aboutMe1)}
 
             <br />
             <br />
 
-            <p>
-              Currently I would like to think of myself as a Professional
-              Blockchain and DevOps Developer as I have gained vast experience
-              in deployment by working in a number of companies and projects
-              over the past 3-4 years. But I am comfortable handling the
-              backend, core blockchain and security of the project well.
-            </p>
+            {Parser(aboutMe2)}
           </div>
 
           <div className="user__description--media">
@@ -44,33 +49,23 @@ function About() {
         </div>
 
         <div className="about__section--skills font-rale">
-          <div className="user__basic__skills">
-            <p className="base-icons">
-              <BiCodeAlt />
-            </p>
-            <p>Blockchain Developer</p>
-          </div>
-
-          <div className="user__basic__skills">
-            <p className="base-icons">
-              <BiCodeAlt />
-            </p>
-            <p>DevOps Developer</p>
-          </div>
-
-          <div className="user__basic__skills">
-            <p className="base-icons">
-              <BiCodeAlt />
-            </p>
-            <p>AI and ML Developer</p>
-          </div>
-
-          <div className="user__basic__skills">
-            <p className="base-icons">
-              <BiCodeAlt />
-            </p>
-            <p>Android Developer</p>
-          </div>
+          {basicSkills.map((skill, index) => {
+            return (
+              <div
+                className="user__basic__skills"
+                key={index}
+                data-aos="zoom-in"
+                data-aos-delay="600"
+                data-aos-duration="500"
+                data-aos-easing="ease-in-out"
+              >
+                <p className="base-icons">
+                  <BiCodeAlt />
+                </p>
+                <p>{skill}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
